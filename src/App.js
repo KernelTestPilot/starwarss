@@ -7,6 +7,14 @@ import FilmCard from './FilmCard';
 import SpeciesCard from './SpeciesCard';
 import VehicleCard from './VehicleCard';
 import StarChipCard from './StarChipCard';
+import 'bulma/css/bulma.min.css';
+import{
+  Button,
+  Container,
+  Columns,
+  Section,
+  div
+} from 'react-bulma-components'
 const API_URL = 'https://swapi.dev/api/';
 
 function App() {
@@ -27,7 +35,7 @@ console.log(searchTerm)
 fetchStarwars(value)
 },[value]);
 
-//So our render function doesnt have alot of if statements and right card render
+//So our render  doesnt have alot of if statements and right card render
 const RenderCard = (searchTerm) => {
 if(value =="people"){
   return <PeopleCard people ={searchTerm}/>
@@ -52,14 +60,26 @@ if(value == "starships"){
 //render this bitch
   return (
     <div className="App">
-     <div>
-      <button value = "people"  onClick={(e) => SetValue(e.target.value)}> </button>
-      <button value = "planets" onClick={(e) => SetValue(e.target.value)}> </button>
-      <button value = "films" onClick={(e) => SetValue(e.target.value)}> </button>
-      <button value = "species" onClick={(e) => SetValue(e.target.value)}> </button>
-      <button value = "vehicles" onClick={(e) => SetValue(e.target.value)}> </button>
-      <button value = "starships" onClick={(e) => SetValue(e.target.value)}> </button>
-     </div>
+  <Section class="hero is-danger"> 
+  <div class="hero-body">
+    <p class="title">
+      Starwars
+    </p>
+    <p class="subtitle">
+     Wiki
+    </p>
+  </div>
+  
+  </Section>
+
+     <Container class="container is-fluid">
+      <Button class="button is-info  is-outlined is-rounded" value = "people"  onClick={(e) => SetValue(e.target.value) }>People </Button>
+      <Button class="button is-info  is-outlined is-rounded"  value = "planets" onClick={(e) => SetValue(e.target.value)}>Planets </Button>
+      <Button class="button is-info  is-outlined is-rounded" value = "films" onClick={(e) => SetValue(e.target.value)}>Films </Button>
+      <Button class="button is-info  is-outlined is-rounded" value = "species" onClick={(e) => SetValue(e.target.value)}>Species </Button>
+      <Button class="button is-info  is-outlined is-rounded" value = "vehicles" onClick={(e) => SetValue(e.target.value)}>Vehicles </Button>
+      <Button class="button is-info  is-outlined is-rounded" value = "starships" onClick={(e) => SetValue(e.target.value)}>Starships </Button>
+     </Container>
      {
      searchTerm?.length > 0 
      ?
