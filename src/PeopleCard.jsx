@@ -2,11 +2,9 @@ import React from "react";
 
 
 
-const PeopleCard =({movie}) => {
+const PeopleCard =({people}) => {
 return(
-    <div>{movie.title}
-    <p> testsettetstsett</p>
-    
+    <div>{people.name}
     </div>
     
 )
