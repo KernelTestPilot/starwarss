@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useEffect, useState } from 'react';
-
+import PeopleCard from './PeopleCard.jsx';
 const API_URL = 'https://swapi.dev/api/';
 
 function App() {
@@ -21,6 +21,9 @@ setSearchTerm(data.results)
 useEffect(() => {
 fetchStarwars()
 },[]);
+
+
+console.log(searchTerm)
 //render this bitch
   return (
     <div className="App">
@@ -34,6 +37,16 @@ fetchStarwars()
       <button value = "vehicles" onClick={(e) => fetchStarwars(e.target.value)}> </button>
       <button value = "starships" onClick={(e) => fetchStarwars(e.target.value)}> </button>
      </div>
+     {
+     searchTerm?.length > 0 
+     ?
+     searchTerm.map((movie) => (
+       <PeopleCard movie ={movie}/>
+    )):
+    (
+        <div> nothing found</div>
+    )}
+    
     </div>
   );
 }
