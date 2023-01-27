@@ -13,7 +13,10 @@ import{
   Container,
   Columns,
   Section,
-  div
+  Navbar,
+  Breadcrumb,
+  Menu,
+  Level
 } from 'react-bulma-components'
 const API_URL = 'https://swapi.dev/api/';
 
@@ -21,12 +24,21 @@ function App() {
   //create a state for the app function
 const [searchTerm, setSearchTerm] = useState([]);
 const [value, SetValue] = useState([]);
+const [isShown, setIsShown] = useState({});
 //fetch function with api
 const fetchStarwars = async (type) => {
 const response = await fetch (`${API_URL}${type}`)
 const data = await response.json()
 //send data to useState
+setTrue (data.results)
 setSearchTerm(data.results)
+console.log(data.results)
+
+}
+const setTrue = (data) => {
+  const indx = data.map((item, index) => {return (true)})
+  setIsShown(indx)
+  console.log(isShown)
 }
 
 //runs first
@@ -35,25 +47,37 @@ console.log(searchTerm)
 fetchStarwars(value)
 },[value]);
 
+const handleClick = (event, index, setFalse) => {
+  console.log(index)
+  //js object sätter indexar till true
+  setIsShown({
+    ...isShown,
+    [index] : !setFalse,
+  });
+  
+  console.log(!setFalse)
+  console.log(isShown)
+};
+
 //So our render  doesnt have alot of if statements and right card render
-const RenderCard = (searchTerm) => {
+const RenderCard = (searchTerm, index) => {
 if(value =="people"){
-  return <PeopleCard people ={searchTerm}/>
+  return <>{<PeopleCard people={searchTerm} ishown={isShown[index]}/>}</>
       }
 if(value =="planets"){
-   return <PlanetCard planet ={searchTerm}/>
+   return <>{<PlanetCard planet ={searchTerm} ishown={isShown[index]}/>}</> 
  }
  if(value =="films"){
-  return <FilmCard film ={searchTerm}/>
+  return <>{<FilmCard film={searchTerm} ishown={isShown[index]}/>}</>
 } 
 if(value =="species"){
-  return <SpeciesCard species ={searchTerm}/>
+  return <SpeciesCard species ={searchTerm} ishown={isShown[index]}/>
 } 
 if(value == "vehicles"){
-  return <VehicleCard vehicle ={searchTerm}/>
+  return <VehicleCard vehicle ={searchTerm} ishown={isShown[index]}/>
 } 
 if(value == "starships"){
-  return <StarChipCard starchip={searchTerm}/>
+  return <StarChipCard starchip={searchTerm} ishown={isShown[index]}/>
 } 
 }
 
@@ -69,7 +93,6 @@ if(value == "starships"){
      Wiki
     </p>
   </div>
-  
   </Section>
 
      <Container class="container is-fluid">
@@ -80,15 +103,27 @@ if(value == "starships"){
       <Button class="button is-info  is-outlined is-rounded" value = "vehicles" onClick={(e) => SetValue(e.target.value)}>Vehicles </Button>
       <Button class="button is-info  is-outlined is-rounded" value = "starships" onClick={(e) => SetValue(e.target.value)}>Starships </Button>
      </Container>
+
+     <Level.Side align="left">
+     <Menu>
+      <Menu.List>
+      
+        
      {
      searchTerm?.length > 0 
      ?
-     searchTerm.map((data) => (
-       RenderCard(data)
+     searchTerm.map((data, index) => (
+      <Menu.List.Item onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
+       {RenderCard(data, index) }    
+      </Menu.List.Item>
     )):
     (
         <div> nothing found</div>
     )}
+    
+    </Menu.List>
+    </Menu>
+    </Level.Side>
     
     </div>
   );
