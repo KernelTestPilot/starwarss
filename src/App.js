@@ -17,6 +17,8 @@ import{
   Breadcrumb,
   Menu,
   Level,
+  Modal,
+  ButtonGroup
 } from 'react-bulma-components'
 
 const API_URL = 'https://swapi.dev/api/';
@@ -96,16 +98,17 @@ if(value == "starships"){
      </Container>
 
 
-     <Container class="container">
-      
-      <Section class="section is-large"> 
-      <div class="row columns  is-multiline">
   
+
+      <Section class="section is-large"> 
+      <Container class="container">
+      <div class="row columns  is-multiline">
+   
      {
      searchTerm?.length > 0 
      ?
      searchTerm.map((data, index) => (
-      <div class="card large" onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
+      <div class="column is-4" onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
       {RenderCard(data, index) }    
      </div>
     )):
@@ -113,8 +116,8 @@ if(value == "starships"){
         <div> nothing found</div>
     )}
     </div>
-    </Section> 
     </Container>
+    </Section> 
     
     
     </div>

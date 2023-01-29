@@ -9,7 +9,10 @@ import{
   Card,
   Media,
   Heading,
-  Content
+  Content,
+  Modal,
+
+
 } from 'react-bulma-components'
 
 
@@ -17,8 +20,7 @@ const PeopleCard =({people, ishown}) => {
 console.log(ishown)
 return(
     
-    <div class="card-content">{people.name} 
-     <div class="column is-8">
+    <div>{people.name} 
      <article>
             <figure class="image is-5by4">
               <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
@@ -26,7 +28,8 @@ return(
             <h2 class="subtitle"> </h2>
             <span class="tag is-rounded">Starwars people</span>
           </article>
-  
+
+
     <div> {ishown? <div>  </div>  :  <Card style={{ width: 500, margin: 'auto' }}>
         <Card.Content>
             <Media>
@@ -50,7 +53,6 @@ return(
     </Card>} </div>
     
     
-    </div>
     </div>
     
 )
