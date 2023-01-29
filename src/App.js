@@ -16,8 +16,9 @@ import{
   Navbar,
   Breadcrumb,
   Menu,
-  Level
+  Level,
 } from 'react-bulma-components'
+
 const API_URL = 'https://swapi.dev/api/';
 
 function App() {
@@ -32,34 +33,25 @@ const data = await response.json()
 //send data to useState
 setTrue (data.results)
 setSearchTerm(data.results)
-console.log(data.results)
-
 }
 const setTrue = (data) => {
   const indx = data.map((item, index) => {return (true)})
   setIsShown(indx)
-  console.log(isShown)
 }
 
 //runs first
 useEffect(() => {
-console.log(searchTerm)
 fetchStarwars(value)
 },[value]);
 
 const handleClick = (event, index, setFalse) => {
-  console.log(index)
   //js object sätter indexar till true
   setIsShown({
     ...isShown,
     [index] : !setFalse,
   });
-  
-  console.log(!setFalse)
-  console.log(isShown)
 };
 
-//So our render  doesnt have alot of if statements and right card render
 const RenderCard = (searchTerm, index) => {
 if(value =="people"){
   return <>{<PeopleCard people={searchTerm} ishown={isShown[index]}/>}</>
@@ -80,7 +72,6 @@ if(value == "starships"){
   return <StarChipCard starchip={searchTerm} ishown={isShown[index]}/>
 } 
 }
-
 //render this bitch
   return (
     <div className="App">
@@ -104,26 +95,27 @@ if(value == "starships"){
       <Button class="button is-info  is-outlined is-rounded" value = "starships" onClick={(e) => SetValue(e.target.value)}>Starships </Button>
      </Container>
 
-     <Level.Side align="left">
-     <Menu>
-      <Menu.List>
+
+     <Container class="container">
       
-        
+      <Section class="section is-large"> 
+      <div class="row columns  is-multiline">
+  
      {
      searchTerm?.length > 0 
      ?
      searchTerm.map((data, index) => (
-      <Menu.List.Item onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
-       {RenderCard(data, index) }    
-      </Menu.List.Item>
+      <div class="card large" onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
+      {RenderCard(data, index) }    
+     </div>
     )):
     (
         <div> nothing found</div>
     )}
+    </div>
+    </Section> 
+    </Container>
     
-    </Menu.List>
-    </Menu>
-    </Level.Side>
     
     </div>
   );
