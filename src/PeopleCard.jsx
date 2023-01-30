@@ -1,30 +1,19 @@
 import React from "react";
 import 'bulma/css/bulma.min.css';
 import{
-  Button,
-  Container,
-  Columns,
-  Section,
-  div,
   Card,
   Media,
   Heading,
   Content,
-  Modal,
-
-
 } from 'react-bulma-components';
 import PeopleCardModal from "./PeopleCardModal";
 
-
 const PeopleCard =({people, ishown}) => {
-console.log(ishown)
+
 return(
     
     <div>
-     
-
-
+    
     <div> {ishown? <div>{people.name} <article>
             <figure class="image is-5by4">
               <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
@@ -41,7 +30,6 @@ return(
                 </Media.Item>
             </Media>
             <Content class="has-text-left">
-         
                 Gender: <b>{people.gender}</b><br /> 
                 Birth year: <b>{people.birth_year}</b><br />
                 Height (cm): <b>{people.height}</b>     Weight (kg): <b>{people.mass}</b><br />
@@ -66,12 +54,8 @@ return(
             </Content>
         </Card.Content>
     </Card>} </div>
-    
-    
     </div>
     
 )
-
 }
-
 export default PeopleCard;
