@@ -1,5 +1,4 @@
 import React from "react";
-import 'bulma/css/bulma.min.css';
 import { useEffect, useState } from 'react';
 
 const PeopleCardModal =({movies}) => {
@@ -10,29 +9,19 @@ const PeopleCardModal =({movies}) => {
     //send data to useState
     setSearchData(data)
     console.log(data)
-    }
+  }
     //runs first
-useEffect(() => {
-  fetchMovies(movies)
+  useEffect(() => {
+    fetchMovies(movies)
   },[movies]);
   
 return(
   <div>
-      <div class="card small has-background-grey">
-      <div class="card-content">
-      <span class="title is-6">
-      <p class="subtitle is-6"><b class="has-text-black">{SearchData.title}</b></p>
-     </span> 
-      <span class="title is-6"> 
-      <p class="subtitle is-6">Director:  <b class=" has-text-light">{SearchData.director}</b></p>
-   </span>
-   <span class="title is-6"> 
-      <p class="subtitle is-6">Year:  <b class="has-text-dark">{SearchData.release_date}</b></p>
-   </span>
-   </div>
-      </div>
-
+    <div class="small-card">
+        <h3 class="small-card-header">{SearchData.title}</h3>
+        <p class="small-card-text">{SearchData.director}, {SearchData.release_date}</p>
     </div>
+  </div>
 
 )
 

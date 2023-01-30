@@ -36,3 +36,91 @@
     transform: rotate(360deg);
   }
 }
+
+.main-header {
+  background: url(https://cdn.shopify.com/s/files/1/1057/4964/t/27/assets/star-wars-banner.jpeg?v=80624120874934922901668841836);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 3/1;
+  position: fixed;
+  z-index: -1;
+  padding: 0.5em;
+  color: #FFF;
+  font-size: 4em;
+}
+
+.nav-container {
+  padding-top: calc(100vw / 3);
+  background: linear-gradient(transparent 0 50%, #FFF);
+}
+
+.secondary-nav-container {
+  background: #FFF;
+}
+
+.main-nav-btn {
+  margin: 1em;
+  background-color: #FFF;
+  border: 1px solid #AAA;
+  border-radius: 10px;
+  color: #333;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  transition-duration: 0.2s;
+}
+
+.main-nav-btn:hover {
+  background-color: #CCC;
+}
+
+.main-nav-btn:active {
+  background-color: #AAA;
+}
+
+.main-container {
+  background-color: #FFF;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 2em 2em 2em;
+  justify-content: space-evenly;
+}
+
+.content-card {
+  width: clamp(270px, 25%, 350px);
+  aspect-ratio: 3/2;
+  margin: 1em;
+  border: 1px solid #CCC;
+  border-radius: 10px;
+}
+
+.card-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  justify-content: center;
+  padding: 0.2em;
+}
+
+.card-text {
+  text-align: left;
+  padding: 0.5em;
+}
+
+.small-card {
+  background-color: #999;
+  padding: 0.3em;
+}
+
+.small-card-header {
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+}
+
+.small-card-text {
+  font-size: 0.8em;
+}
+
+.bold-text {
+  font-weight: bold;
+}
