@@ -35,6 +35,7 @@ const data = await response.json()
 //send data to useState
 setTrue (data.results)
 setSearchTerm(data.results)
+console.log(data.results)
 }
 const setTrue = (data) => {
   const indx = data.map((item, index) => {return (true)})
@@ -108,7 +109,7 @@ if(value == "starships"){
      searchTerm?.length > 0 
      ?
      searchTerm.map((data, index) => (
-      <div class="column is-4" onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
+      <div class="column is-3" onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
       {RenderCard(data, index) }    
      </div>
     )):
