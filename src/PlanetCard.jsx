@@ -1,4 +1,6 @@
 import React from "react";
+import PeopleCardModal from "./PeopleCardModal";
+import PeopleInfo from "./PeopleInfo";
 
 const PlanetCard =({planet, ishown}) => {
   return(
@@ -20,6 +22,17 @@ const PlanetCard =({planet, ishown}) => {
           Terrain: <strong>{planet.terrain}</strong><br />
           Surface covered in water: <strong>{planet.surface_water}%</strong><hr />
         </p>
+        <h3 class="card-header">Residents: </h3>
+        {planet.residents.length > 0 ? planet.residents.map((data, index) => (  
+            <PeopleInfo peoples={data}/>
+          )):
+          (<div>Nothing found</div>)}<br />
+        
+        <h3 class="card-header">Movies: </h3>
+        {planet.films.length > 0 ? planet.films.map((data, index) => ( 
+          <PeopleCardModal movies={data}/>
+        )):
+          (<div>Nothing found</div>)}
       </article>}
     </div>
   )
