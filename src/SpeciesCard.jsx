@@ -1,5 +1,6 @@
 import React from "react";
-
+import PeopleCardModal from "./PeopleCardModal";
+import PeopleCardPlanet from "./PeopleCardPlanet";
 
 
 const SpeciesCard =({species, ishown}) => {
@@ -12,19 +13,23 @@ return(
     </article> :
     <article>
       <h2 class="card-header">{species.name}</h2>
-      <p class="card-text">
-        Average height (cm): <b>{species.average_height}</b><br />
-        Average lifespan (years): <b>{species.average_lifespan}</b><br />
-        Classification: <b>{species.classification}</b><br />
-        Designation: <b>{species.designation}</b><br />
-        Eye colors: <b>{species.eye_colors}</b><br />
-        Hair colors: <b>{species.hair_colors}</b><br />
-        Skin colors: <b>{species.skin_colors}</b><br />
-        Homeworld: <a href={species.homeworld}><b>{species.homeworld}</b></a><br />
+      <p class="card-text">Classification <b>{species.classification}</b><br /> 
         Language: <b>{species.language}</b><br />
+        Height (cm): <b>{species.average_height}</b><br />
+         Avg lifespan: <b>{species.average_lifespan}</b><br />
+        Eye colors: <b>{species.eye_colors}</b><br />
+         Skin colors: <b>{species.hair_colors}</b><br />
       </p>
+      <h3 class="card-header">Movies: </h3>
+      {
+        species.films.length > 0 ? species.films.map((data, index) => (  
+          <PeopleCardModal movies={data}/>
+        )):
+        ( <div>Nothing found</div> )
+      }
+      <PeopleCardPlanet planets={species.homeworld}/>
     </article>}
-  </div>
+</div>
 )
 
 }
