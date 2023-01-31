@@ -25,6 +25,7 @@ const fetchStarwars = async (type, page) => {
   //send data to useState
   setTrue (data.results)
   setSearchTerm(data.results)
+  console.log(data.results)
 }
 
 const setTrue = (data) => {

@@ -37,9 +37,13 @@ return(
         <h3 class="card-header">Movies: </h3>
         {
           people.films.length > 0 ? people.films.map((data, index) => (  
-            <PeopleCardModal movies={data}/>
+            <PeopleCardModal movies={data} planets={people.homeworld}/>
           )):
           ( <div>Nothing found</div> )
+        }
+         {
+         
+       
         }
       </article>}
   </div>

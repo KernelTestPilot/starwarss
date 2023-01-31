@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -79,6 +80,7 @@
 }
 
 .main-container {
+  
   background-color: #FFF;
   display: flex;
   flex-wrap: wrap;
