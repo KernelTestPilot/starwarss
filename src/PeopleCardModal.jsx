@@ -5,18 +5,20 @@ const PeopleCardModal =({movies}) => {
   const [movie, setMovieData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   
+  const abortCon = new AbortController();
+
+  const fetchStarwars = async (movies) => {
+    setMovieData([]);
+    const response = await fetch (`${movies}`)
+    const data = await response.json()
+    //send data to useState
+    setMovieData(data);
+    console.log(data)
+  }
 
   useEffect(() => {
-   Promise.all([
-      fetch(movies),
-   ])
-    .then(([resMovies]) =>
-    Promise.all([resMovies.json()])
-    )
-    .then(([movieData]) => {
-      setMovieData(movieData);
-      console.log(movieData)
-    });
+   fetchStarwars(movies)
+  
   },[]);
   
 return(
@@ -33,11 +35,11 @@ return(
           {
       // HOVER ME ->
 }
-       <h1 class="small-card-header">{movie.title}</h1> 
+       <h1 className="small-card-header">{movie.title}</h1> 
       </div>
-      {showMessage &&   <div class="small-card">
-        <p class="small-card-text bold-text">{movie.director}, {movie.release_date}</p><hr />
-        <p class="small-card-text">{movie.opening_crawl}</p>
+      {showMessage &&   <div className="small-card">
+        <p className="small-card-text bold-text">{movie.director}, {movie.release_date}</p><hr />
+        <p className="small-card-text">{movie.opening_crawl}</p>
       </div>
       }
   </div>

@@ -8,7 +8,7 @@ const PeopleCardPlanet =({planets}) => {
 
   useEffect(() => {
    Promise.all([
-      fetch(planets),
+      fetch(`${planets}`),
    ])
     .then(([resPlanets]) =>
     Promise.all([resPlanets.json()])
@@ -30,11 +30,11 @@ return(
         }}
       >
 
-<img class="homeworld-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arcadian_Planet_Delta.png/900px-Arcadian_Planet_Delta.png?20191222104207" title={planet.name}></img>
+<img className="homeworld-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arcadian_Planet_Delta.png/900px-Arcadian_Planet_Delta.png?20191222104207" title={planet.name}></img>
       </div>
-      {showMessage &&   <div class="small-card">  
-      <h3 class="small-card-header">{planet.name}</h3>
-      <p class="small-card-text">
+      {showMessage &&   <div className="small-card">  
+      <h3 className="small-card-header">{planet.name}</h3>
+      <p className="small-card-text">
           Diameter (km): <strong>{planet.diameter}</strong><br />
           Gravity: <strong>{planet.gravity}</strong><br />
           Rotation period (hours): <strong>{planet.rotation_period}</strong><br />

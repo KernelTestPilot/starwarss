@@ -8,26 +8,30 @@ return(
   <div>
   {ishown ? 
     <article>
-      <h2 class="card-header">{species.name}</h2>
+      <h2 className="card-header">{species.name}</h2>
       <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
     </article> :
     <article>
-      <h2 class="card-header">{species.name}</h2>
-      <p class="card-text">Classification <b>{species.classification}</b><br /> 
+      <h2 className="card-header">{species.name}</h2>
+      <p className="card-text">classNameification <b>{species.classNameification}</b><br /> 
         Language: <b>{species.language}</b><br />
         Height (cm): <b>{species.average_height}</b><br />
          Avg lifespan: <b>{species.average_lifespan}</b><br />
         Eye colors: <b>{species.eye_colors}</b><br />
          Skin colors: <b>{species.hair_colors}</b><br />
       </p>
-      <h3 class="card-header">Movies: </h3>
+      <h3 className="card-header">Movies: </h3>
       {
-        species.films.length > 0 ? species.films.map((data, index) => (  
+        species.films.length > 0 ? species.films.map((data, index) => (
+         <div key={index}>
           <PeopleCardModal movies={data}/>
+          </div>
         )):
         ( <div>Nothing found</div> )
       }
+      <div key="homeplanet">
       <PeopleCardPlanet planets={species.homeworld}/>
+      </div>
     </article>}
 </div>
 )

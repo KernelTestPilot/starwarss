@@ -9,12 +9,12 @@ return(
   <div>
   {ishown ? 
     <article>
-      <h2 class="card-header">{vehicle.name}</h2>
+      <h2 className="card-header">{vehicle.name}</h2>
       <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
     </article> :
     <article>
-      <h2 class="card-header">{vehicle.name}</h2>
-      <p class="card-text">
+      <h2 className="card-header">{vehicle.name}</h2>
+      <p className="card-text">
         Model: <b>{vehicle.model}</b><br />
         Manufacturer: <b>{vehicle.manufacturer}</b><br />
         Type: <b>{vehicle.vehicle_class}</b><br />
@@ -26,15 +26,19 @@ return(
         Time between resupplies (at full crew): <b>{vehicle.consumables}</b><br />
         Cost: <b>{vehicle.cost_in_credits} credits</b><br />
       </p>
-      <h3 class="card-header">Pilots: </h3>
-        {vehicle.pilots.length > 0 ? vehicle.pilots.map((data, index) => (  
+      <h3 className="card-header">Pilots: </h3>
+        {vehicle.pilots.length > 0 ? vehicle.pilots.map((data, index) => ( 
+            <div key={index}>
             <PeopleInfo peoples={data}/>
+            </div>
           )):
           (<div>Nothing found</div>)}<br />
         
-        <h3 class="card-header">Movies: </h3>
-        {vehicle.films.length > 0 ? vehicle.films.map((data, index) => ( 
+        <h3 className="card-header">Movies: </h3>
+        {vehicle.films.length > 0 ? vehicle.films.map((data, index) => (
+          <div key={index}>
           <PeopleCardModal movies={data}/>
+          </div> 
         )):
           (<div>Nothing found</div>)}
     </article>}

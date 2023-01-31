@@ -33,15 +33,15 @@ return(
           {
       // HOVER ME ->
 }
-       <h1 class="small-card-header">{people.name}</h1> 
+       <h1 className="small-card-header">{people.name}</h1> 
       </div>
-      {showMessage &&   <div class="small-card">
-      <h2 class="card-header">{people.name}</h2>
-        <p class="card-text">Gender: <b>{people.gender}</b><br /> 
+      {showMessage &&   <div className="small-card">
+      <h2 className="card-header">{people.name}</h2>
+        <p className="card-text">Gender: <b>{people.gender}</b><br /> 
           Birth year: <b>{people.birth_year}</b><br />
           Height (cm): <b>{people.height}</b>, Weight (kg): <b>{people.mass}</b><br />
           Eye colors: <b>{people.eye_color}</b>, Hair colors: <b>{people.hair_color}</b><br />
-          Skin colors: <b>{people.skin_color}</b><hr />
+          Skin colors: <b>{people.skin_color}</b>
         </p>
       </div>
       }
