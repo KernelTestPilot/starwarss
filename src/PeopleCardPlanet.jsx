@@ -1,21 +1,20 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 
-const PeopleCardModal =({movies}) => {
-  const [movie, setMovieData] = useState([]);
+const PeopleCardPlanet =({planets}) => {
+  const [planet, setPlanetData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   
 
   useEffect(() => {
    Promise.all([
-      fetch(movies),
+      fetch(planets),
    ])
-    .then(([resMovies]) =>
-    Promise.all([resMovies.json()])
+    .then(([resPlanets]) =>
+    Promise.all([resPlanets.json()])
     )
-    .then(([movieData]) => {
-      setMovieData(movieData);
-      console.log(movieData)
+    .then(([planetData]) => {
+      setPlanetData(planetData);
     });
   },[]);
   
@@ -46,4 +45,4 @@ return(
 
 }
 
-export default PeopleCardModal;
+export default PeopleCardPlanet;

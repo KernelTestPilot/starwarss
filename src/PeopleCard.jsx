@@ -15,11 +15,12 @@ import{
 
 } from 'react-bulma-components';
 import PeopleCardModal from "./PeopleCardModal";
-
+import PeopleCardPlanet from "./PeopleCardPlanet";
 
 const PeopleCard =({people, ishown}) => {
+
 return(
-    
+
   <div>
     {ishown ? 
       <article>
@@ -37,7 +38,7 @@ return(
         <h3 class="card-header">Movies: </h3>
         {
           people.films.length > 0 ? people.films.map((data, index) => (  
-            <PeopleCardModal movies={data} planets={people.homeworld}/>
+            <PeopleCardModal movies={data}/>
           )):
           ( <div>Nothing found</div> )
         }
@@ -45,6 +46,7 @@ return(
          
        
         }
+        <PeopleCardPlanet planets={people.homeworld}/>
       </article>}
   </div>
     
