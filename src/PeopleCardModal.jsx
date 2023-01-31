@@ -35,9 +35,9 @@ return(
 }
        <h1 class="small-card-header">{movie.title}</h1> 
       </div>
-      {showMessage &&   <div class="small-card">Director: {movie.director} Producer: {movie.producer}    
-      <h3 class="small-card-header">Title: {movie.title}</h3>
-        <p class="small-card-text">{movie.director}, {movie.release_date}</p>
+      {showMessage &&   <div class="small-card">
+        <p class="small-card-text bold-text">{movie.director}, {movie.release_date}</p><hr />
+        <p class="small-card-text">{movie.opening_crawl}</p>
       </div>
       }
   </div>

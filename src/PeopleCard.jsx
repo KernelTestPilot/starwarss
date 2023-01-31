@@ -42,10 +42,6 @@ return(
           )):
           ( <div>Nothing found</div> )
         }
-         {
-         
-       
-        }
         <PeopleCardPlanet planets={people.homeworld}/>
       </article>}
   </div>

@@ -29,14 +29,21 @@ return(
           setShowMessage(false);
         }}
       >
-          {
-      // HOVER ME ->
-}
-       <h1 class="small-card-header">{movie.title}</h1> 
+
+<img class="homeworld-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arcadian_Planet_Delta.png/900px-Arcadian_Planet_Delta.png?20191222104207" title={planet.name}></img>
       </div>
-      {showMessage &&   <div class="small-card">Director: {movie.director} Producer: {movie.producer}    
-      <h3 class="small-card-header">Title: {movie.title}</h3>
-        <p class="small-card-text">{movie.director}, {movie.release_date}</p>
+      {showMessage &&   <div class="small-card">  
+      <h3 class="small-card-header">{planet.name}</h3>
+      <p class="small-card-text">
+          Diameter (km): <strong>{planet.diameter}</strong><br />
+          Gravity: <strong>{planet.gravity}</strong><br />
+          Rotation period (hours): <strong>{planet.rotation_period}</strong><br />
+          Orbital period (days): <strong>{planet.orbital_period}</strong><br />
+          Population: <strong>{planet.population}</strong><br />
+          Climate: <strong>{planet.climate}</strong><br />
+          Terrain: <strong>{planet.terrain}</strong><br />
+          Surface covered in water: <strong>{planet.surface_water}%</strong>
+          </p>
       </div>
       }
   </div>
