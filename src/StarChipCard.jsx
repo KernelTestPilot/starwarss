@@ -1,6 +1,6 @@
 import React from "react";
-
-
+import PeopleCardModal from "./PeopleCardModal";
+import PeopleInfo from "./PeopleInfo";
 
 const StarChipCard =({starchip, ishown}) => {
 return(
@@ -26,6 +26,17 @@ return(
                 Time between resupplies (at full crew): <b>{starchip.consumables}</b><br />
                 Cost: <b>{starchip.cost_in_credits} credits</b><br />
       </p>
+      <h3 class="card-header">Pilots: </h3>
+        {starchip.pilots.length > 0 ? starchip.pilots.map((data, index) => (  
+            <PeopleInfo peoples={data}/>
+          )):
+          (<div>Nothing found</div>)}<br />
+        
+        <h3 class="card-header">Movies: </h3>
+        {starchip.films.length > 0 ? starchip.films.map((data, index) => ( 
+          <PeopleCardModal movies={data}/>
+        )):
+          (<div>Nothing found</div>)}
     </article>}
   </div>
 )

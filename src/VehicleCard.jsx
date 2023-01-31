@@ -1,4 +1,6 @@
 import React from "react";
+import PeopleCardModal from "./PeopleCardModal";
+import PeopleInfo from "./PeopleInfo";
 
 
 
@@ -24,6 +26,17 @@ return(
         Time between resupplies (at full crew): <b>{vehicle.consumables}</b><br />
         Cost: <b>{vehicle.cost_in_credits} credits</b><br />
       </p>
+      <h3 class="card-header">Pilots: </h3>
+        {vehicle.pilots.length > 0 ? vehicle.pilots.map((data, index) => (  
+            <PeopleInfo peoples={data}/>
+          )):
+          (<div>Nothing found</div>)}<br />
+        
+        <h3 class="card-header">Movies: </h3>
+        {vehicle.films.length > 0 ? vehicle.films.map((data, index) => ( 
+          <PeopleCardModal movies={data}/>
+        )):
+          (<div>Nothing found</div>)}
     </article>}
   </div>
 )
