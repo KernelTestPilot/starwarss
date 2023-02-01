@@ -10,7 +10,7 @@ return(
   {ishown ? 
     <article>
       <h2 className="card-header">{vehicle.name}</h2>
-      <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+      <img src="https://cdn-icons-png.flaticon.com/512/1679/1679589.png" />
     </article> :
     <article>
       <h2 className="card-header">{vehicle.name}</h2>

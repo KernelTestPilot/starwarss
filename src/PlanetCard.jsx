@@ -10,7 +10,7 @@ const PlanetCard =({planet, ishown}) => {
     {ishown ? 
       <article>
         <h2 className="card-header">{planet.name}</h2>
-        <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+        <img src="https://cdn-icons-png.flaticon.com/512/696/696677.png" />
       </article> :
       <article>
         <h2 className="card-header">{planet.name}</h2>

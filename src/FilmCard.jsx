@@ -9,7 +9,7 @@ return(
        <article>
          <h2 className="card-header">{film.title}</h2>
          <p>Episode {film.episode_id}</p>
-         <img src="https://i.ibb.co/fq8hSGQ/placeholder-image-368x246.png" />
+         <img src="https://cdn-icons-png.flaticon.com/512/9428/9428726.png" />
        </article> :
        <article>
          <h2 className="card-header">{film.title}</h2>

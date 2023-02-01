@@ -121,8 +121,9 @@ if(value == "starships"){
         <button className="main-nav-btn" value="?page=8" onClick={(e) => setPage(e.target.value)}>8</button>
         <button className="main-nav-btn" value="?page=9" onClick={(e) => setPage(e.target.value)}>9</button>
       </nav>
-
+      <div >  <h1 class="title is-2 is-spaced">{value}</h1></div>
       <main className="main-container">
+   
         {
           searchTerm?.length > 0 ? searchTerm.map((data, index) => (
             <div className="content-card" key={index} onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
