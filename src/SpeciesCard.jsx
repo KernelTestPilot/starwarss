@@ -5,7 +5,7 @@ import PeopleCardPlanet from "./PeopleCardPlanet";
 
 const SpeciesCard =({species, ishown}) => {
 return(
-  <div>
+  <div className="content-card">
   {ishown ? 
     <article>
       <h2 className="card-header">{species.name}</h2>

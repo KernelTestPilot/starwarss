@@ -6,7 +6,7 @@ import PeopleInfo from "./PeopleInfo";
 
 const VehicleCard =({vehicle,ishown}) => {
 return(
-  <div>
+  <div className="content-card">
   {ishown ? 
     <article>
       <h2 className="card-header">{vehicle.name}</h2>

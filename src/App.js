@@ -8,20 +8,7 @@ import SpeciesCard from './SpeciesCard';
 import VehicleCard from './VehicleCard';
 import StarChipCard from './StarChipCard';
 import 'bulma/css/bulma.min.css';
-import{
-  Button,
-  Container,
-  Columns,
-  Section,
-  div,
-  Card,
-  Media,
-  Heading,
-  Content,
-  Modal,
 
-
-} from 'react-bulma-components';
 
 const API_URL = 'https://swapi.dev/api/';
 
@@ -32,7 +19,6 @@ const [value, SetValue] = useState([]);
 const [isShown, setIsShown] = useState({});
 const[page, setPage] = useState([]);
 
-//fetch function with api
 const fetchStarwars = async (type, page) => {
   if(!page){ setPage ="?page=1";}
   console.log("data loaded")
@@ -41,18 +27,15 @@ const fetchStarwars = async (type, page) => {
   //send data to useState
   setTrue (data.results)
   setSearchTerm(data.results)
- 
-  console.log(data.results)
 }
 
 const setTrue = (data) => {
-    console.log("test")
+
   const indx = data.map((item, index) => {return (true)})
   setIsShown(indx)
   
 }
 
-//runs first
 useEffect(() => {
 fetchStarwars(value, page)
 },[value, page]);
@@ -126,7 +109,7 @@ if(value == "starships"){
    
         {
           searchTerm?.length > 0 ? searchTerm.map((data, index) => (
-            <div className="content-card" key={index} onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
+            <div className="card-c" key={index} onClick={(e) => handleClick(data, index, isShown[`${index}`])}>
               {RenderCard(data, index)}    
             </div>
           )):

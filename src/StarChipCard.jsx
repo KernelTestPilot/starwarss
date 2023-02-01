@@ -4,7 +4,7 @@ import PeopleInfo from "./PeopleInfo";
 
 const StarChipCard =({starchip, ishown}) => {
 return(
-  <div>
+  <div className="content-card">
   {ishown ? 
     <article>
       <h2 className="card-header">{starchip.name}</h2>

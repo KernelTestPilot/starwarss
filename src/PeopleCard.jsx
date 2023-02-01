@@ -20,7 +20,7 @@ const PeopleCard =({people, ishown}) => {
 
 return(
 
-  <div>
+  <div className="content-card">
     {ishown ? 
       <article>
         <h2 className="card-header">{people.name}</h2>

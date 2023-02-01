@@ -95,6 +95,11 @@
   border: 1px solid #CCC;
   border-radius: 10px;
 }
+.card-c{
+  width: clamp(270px, 25%, 350px);
+  aspect-ratio: 3/2;
+  margin: 1em;
+}
 
 .card-header {
   font-size: 1.2em;

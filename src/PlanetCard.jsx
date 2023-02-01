@@ -6,7 +6,7 @@ const PlanetCard =({planet, ishown}) => {
   console.log(planet)
   return(
  
-    <div>
+    <div className="content-card">
     {ishown ? 
       <article>
         <h2 className="card-header">{planet.name}</h2>

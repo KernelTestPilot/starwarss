@@ -4,7 +4,7 @@ import React from "react";
 
 const FilmCard =({film, ishown}) => {
 return(
-     <div>
+     <div className="content-card">
      {ishown ? 
        <article>
          <h2 className="card-header">{film.title}</h2>
