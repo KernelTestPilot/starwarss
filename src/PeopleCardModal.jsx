@@ -5,15 +5,6 @@ const PeopleCardModal =({movies}) => {
   const [movie, setMovieData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   
-  const fetchStarwars = async (movies) => {
-    setMovieData([]);
-    const response = await fetch (`${movies}`)
-    const data = await response.json()
-    //send data to useState
-    setMovieData(data);
-    console.log(data)
-  }
-
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
