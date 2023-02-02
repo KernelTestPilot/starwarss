@@ -3,7 +3,6 @@ import PeopleCardModal from "./PeopleCardModal";
 import PeopleInfo from "./PeopleInfo";
 
 const PlanetCard =({planet, ishown}) => {
-  console.log(planet)
   return(
  
     <div className="content-card">

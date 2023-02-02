@@ -5,8 +5,6 @@ const PeopleCardModal =({movies}) => {
   const [movie, setMovieData] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   
-  const abortCon = new AbortController();
-
   const fetchStarwars = async (movies) => {
     setMovieData([]);
     const response = await fetch (`${movies}`)
@@ -17,7 +15,21 @@ const PeopleCardModal =({movies}) => {
   }
 
   useEffect(() => {
-   fetchStarwars(movies)
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+        fetch(movies, {
+            signal: signal
+        })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          setMovieData(response);
+        });
+    return () => {
+        // cancel the request before component unmounts
+        controller.abort();
+    };
   
   },[]);
   

@@ -7,16 +7,21 @@ const PeopleInfo =({peoples}) => {
   
 
   useEffect(() => {
-   Promise.all([
-      fetch(peoples),
-   ])
-    .then(([respeoples]) =>
-    Promise.all([respeoples.json()])
-    )
-    .then(([peopleData]) => {
-      setPeopleData(peopleData);
-      console.log("hej")
-    });
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+        fetch(peoples, {
+            signal: signal
+        })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          setPeopleData(response);
+        });
+    return () => {
+        // cancel the request before component unmounts
+        controller.abort();
+    };
   },[]);
   
 return(

@@ -7,15 +7,22 @@ const PeopleCardPlanet =({planets}) => {
   
 
   useEffect(() => {
-   Promise.all([
-      fetch(`${planets}`),
-   ])
-    .then(([resPlanets]) =>
-    Promise.all([resPlanets.json()])
-    )
-    .then(([planetData]) => {
-      setPlanetData(planetData);
-    });
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+        fetch(planets, {
+            signal: signal
+        })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          setPlanetData(response);
+        });
+    return () => {
+        // cancel the request before component unmounts
+        controller.abort();
+    };
+  
   },[]);
   
 return(
